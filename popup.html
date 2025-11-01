@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>B站字幕任务栏显示</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 15px;
+      font-family: 'Microsoft YaHei', sans-serif;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, button {
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #00a1d6;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #0091c2;
+    }
+    .status {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 4px;
+      text-align: center;
+    }
+    .success {
+      background-color: #e3f7e3;
+      color: #2e7d32;
+    }
+    .error {
+      background-color: #fdecea;
+      color: #c62828;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>B站字幕任务栏显示</h2>
+    
+    <div class="form-group">
+      <label for="port">任务栏歌词端口:</label>
+      <input type="number" id="port" min="1024" max="65535" placeholder="默认: 8848">
+    </div>
+    
+    <button id="saveBtn">保存设置</button>
+    
+    <div class="form-group">
+      <button id="testBtn">测试连接</button>
+    </div>
+    
+    <div id="status" class="status" style="display: none;"></div>
+    
+    <div class="info">
+      <p>使用说明:</p>
+      <ol>
+        <li>确保任务栏歌词程序已运行</li>
+        <li>打开B站视频并开启CC字幕</li>
+        <li>字幕将自动显示在任务栏上</li>
+      </ol>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

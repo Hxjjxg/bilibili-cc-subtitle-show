@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "B站字幕任务栏显示",
+  "version": "1.0",
+  "description": "将B站视频的CC字幕实时显示在Windows任务栏上",
+  "permissions": ["tabs", "activeTab", "scripting", "storage"],
+  "host_permissions": [
+    "*://*.bilibili.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "256": "images/256.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.bilibili.com/video/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "icons": {
+    "256": "images/256.png"
+  }
+}
